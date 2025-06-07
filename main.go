@@ -10,46 +10,45 @@ func num2geez(n int) string {
 		70: '፸', 80: '፹', 90: '፺', 100: '፻', 10000: '፼',
 	}
 
-	res := ""
-	subscript := 0
+	result := ""
+	place := 0
 
 	for n > 0 {
 		value := n % 100
-
 		ones := value % 10
 		tens := value / 10 * 10
+		sep := 0
 
-		if subscript > 0 && !(tens == 0 && ones == 0) {
-			if subscript%2 == 0 {
-				res = string(numberMap[10000]) + res
-			} else {
-				res = string(numberMap[100]) + res
+		if place != 0 {
+			if place%2 == 0 {
+				sep = 10000
+			} else if ones != 0 || tens != 0 {
+				sep = 100
 			}
-			if tens == 0 && ones == 1 {
+			result = string(numberMap[sep]) + result
+		}
+
+		if ones == 1 && tens == 0 && place > 0 {
+			if sep == 100 || n/100 == 0 {
 				ones = 0
 			}
 		}
 
-		res = string(numberMap[tens]) + string(numberMap[ones]) + res
-
+		result = string(numberMap[tens]) + string(numberMap[ones]) + result
 		n /= 100
-		subscript++
-
+		place++
 	}
 
-	return res
+	return result
 }
 
 func main() {
-	// for i := 1; i <= 100; i++ {
-	// 	fmt.Println(i, num2geez(i))
-	// }
-	for i := 1; i <= 1000000; i *= 10 {
+	for i := 1; i <= 100000000; i *= 10 {
 		fmt.Println(i, num2geez(i))
 	}
 
-	// fmt.Println(num2geez(170))
-	// fmt.Println(num2geez(200))
-	// fmt.Println(num2geez(1170))
-	// fmt.Println(num2geez(9999))
+	fmt.Println(num2geez(170))
+	fmt.Println(num2geez(200))
+	fmt.Println(num2geez(1170))
+	fmt.Println(num2geez(9999))
 }
