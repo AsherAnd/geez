@@ -34,7 +34,14 @@ func numToGeez(n int) string {
 			}
 		}
 
-		result = string(numberMap[tens]) + string(numberMap[ones]) + result
+		if ones != 0 {
+			result = string(numberMap[ones]) + result
+		}
+
+		if tens != 0 {
+			result = string(numberMap[tens]) + result
+		}
+
 		n /= 100
 		place++
 	}
