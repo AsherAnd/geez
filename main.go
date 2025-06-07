@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func num2geez(n int) string {
+func numToGeez(n int) string {
 	numberMap := map[int]rune{
 		1: '፩', 2: '፪', 3: '፫', 4: '፬', 5: '፭',
 		6: '፮', 7: '፯', 8: '፰', 9: '፱', 10: '፲',
@@ -44,11 +44,11 @@ func num2geez(n int) string {
 
 func main() {
 	for i := 1; i <= 100000000; i *= 10 {
-		fmt.Println(i, num2geez(i))
+		fmt.Println(i, numToGeez(i))
 	}
 
-	fmt.Println(num2geez(170))
-	fmt.Println(num2geez(200))
-	fmt.Println(num2geez(1170))
-	fmt.Println(num2geez(9999))
+	fmt.Println(numToGeez(170))
+	fmt.Println(numToGeez(200))
+	fmt.Println(numToGeez(1170))
+	fmt.Println(numToGeez(9999))
 }
