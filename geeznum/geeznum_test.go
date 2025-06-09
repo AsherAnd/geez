@@ -10,6 +10,9 @@ func TestNumToGeez(t *testing.T) {
 		num  int
 		want string
 	}{
+		{-300003, "-፴፼፫"},
+		{-100000000, "-፼፼"},
+		{-1, "-፩"},
 		{0, ""},
 		{1, "፩"},
 		{10, "፲"},
@@ -109,6 +112,12 @@ func TestNumToGeez(t *testing.T) {
 	for _, testCase := range tests {
 		got := NumToGeez(testCase.num)
 		assertCorrectMessage(t, got, testCase.want)
+	}
+}
+
+func BenchmarkNumToGeez(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		NumToGeez(333333333)
 	}
 }
 

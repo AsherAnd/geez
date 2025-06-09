@@ -9,8 +9,14 @@ func NumToGeez(n int) string {
 		70: '፸', 80: '፹', 90: '፺', 100: '፻', 10000: '፼',
 	}
 
-	result := ""
-	place := 0
+	var result string
+	var place int
+	var neg bool
+
+	if n < 0 {
+		neg = true
+		n *= -1
+	}
 
 	for n > 0 {
 		value := n % 100
@@ -46,6 +52,10 @@ func NumToGeez(n int) string {
 
 		n /= 100
 		place++
+	}
+
+	if neg {
+		result = "-" + result
 	}
 
 	return result
