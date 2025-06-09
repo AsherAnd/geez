@@ -1,6 +1,6 @@
 package geeznum
 
-// NumToGeez converts an integer to a Geez numeral string.
+// NumToGeez converts an integer to a Ge'ez numeral string.
 func NumToGeez(n int) string {
 	numberMap := map[int]rune{
 		1: '፩', 2: '፪', 3: '፫', 4: '፬', 5: '፭',
