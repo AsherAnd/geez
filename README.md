@@ -17,5 +17,5 @@ The `geeznum` package provides a simple, idiomatic function to convert integers 
 To use the package in your Go project, run:
 
 ```bash
-go get github.com/yourusername/geez/geeznum@latest
+go get github.com/asherand/geez@latest
 ```
