@@ -24,7 +24,10 @@ func NumToGeez(n int) string {
 			} else if ones != 0 || tens != 0 {
 				sep = 100
 			}
-			result = string(numberMap[sep]) + result
+
+			if sep != 0 {
+				result = string(numberMap[sep]) + result
+			}
 		}
 
 		if ones == 1 && tens == 0 && place > 0 {
