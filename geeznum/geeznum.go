@@ -1,8 +1,7 @@
-package main
+package geeznum
 
-import "fmt"
-
-func numToGeez(n int) string {
+// NumToGeez converts an integer to a Geez numeral string.
+func NumToGeez(n int) string {
 	numberMap := map[int]rune{
 		1: '፩', 2: '፪', 3: '፫', 4: '፬', 5: '፭',
 		6: '፮', 7: '፯', 8: '፰', 9: '፱', 10: '፲',
@@ -47,15 +46,4 @@ func numToGeez(n int) string {
 	}
 
 	return result
-}
-
-func main() {
-	for i := 1; i <= 100000000; i *= 10 {
-		fmt.Println(i, numToGeez(i))
-	}
-
-	fmt.Println(numToGeez(170))
-	fmt.Println(numToGeez(200))
-	fmt.Println(numToGeez(1170))
-	fmt.Println(numToGeez(9999))
 }
